@@ -9,13 +9,13 @@ if [ -z "$JAR_URL" ]; then
 fi
 
 SERVICE_NAME="printer.service"
-INSTALL_DIR="/opt/pos/bin5"
+INSTALL_DIR="/opt/pos/bin"
 NEW_JAR="$INSTALL_DIR/Printer.jar"
 OLD_JAR="$INSTALL_DIR/Printer_old.jar"
 TMP_JAR="/tmp/Printer.jar.$$"
 
 echo "Downloading new JAR..."
-curl -fL "$JAR_URL" -o "$TMP_JAR"
+wget -O "$TMP_JAR" "$JAR_URL"
 
 if [ ! -s "$TMP_JAR" ]; then
   echo "Download failed or file is empty."
